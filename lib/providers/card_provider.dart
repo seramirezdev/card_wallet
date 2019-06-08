@@ -1,37 +1,42 @@
-import 'dart:convert';
-
 import 'package:card_wallet/helpers/card_colors.dart';
-import 'package:card_wallet/models/card_model.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/services.dart' show rootBundle;
+import 'package:card_wallet/models/card_color_model.dart';
 
-class CardProvider with ChangeNotifier {
+class CardProvider {
+  String holderName;
+  String number;
+  String month;
+  String type;
+  int year;
+  int cvv;
+  int colorIndexSelected;
+  List<CardColorModel> cardColorsList;
 
-  List<CardModel> _cardList;
+  CardProvider(
+      {this.holderName,
+      this.number,
+      this.month,
+      this.type,
+      this.year,
+      this.cvv,
+      this.colorIndexSelected,
+      this.cardColorsList});
 
-  List<CardModel> get cardList => _cardList;
-
-  CardProvider() {
-    _cardList = [];
-    initialData();
+  factory CardProvider.initialData() {
+    return CardProvider(
+        holderName: "",
+        number: "",
+        month: "",
+        type: "",
+        year: 0,
+        cvv: 0,
+        colorIndexSelected: 0,
+        cardColorsList: []);
   }
 
-  void initialData() async {
-    String data = await rootBundle.loadString('data/initialData.json');
-    Map json = jsonDecode(data);
-    _cardList = List<CardModel>();
-
-    if (json["cardResults"] != null) {
-      json["cardResults"].forEach((card) {
-        _cardList.add(new CardModel.fromJson(card));
-      });
-
-      _cardList.asMap().forEach((index, card) {
-        card.color = CardColors.baseColors[index];
-      });
-
-      print(_cardList);
-      notifyListeners();
-    }
+  void selectCardColor(int colorIndex) {
+    CardColors.cardColors.forEach((e) => e.isSelected = false);
+    CardColors.cardColors[colorIndex].isSelected = true;
+    cardColorsList = CardColors.cardColors;
+    colorIndexSelected = colorIndex;
   }
 }

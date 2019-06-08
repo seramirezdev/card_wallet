@@ -1,5 +1,5 @@
 import 'package:card_wallet/models/card_model.dart';
-import 'package:card_wallet/providers/card_provider.dart';
+import 'package:card_wallet/providers/card_list_provider.dart';
 import 'package:card_wallet/ui/widgets/card_chip.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
@@ -8,7 +8,7 @@ import 'package:provider/provider.dart';
 class CardList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final cardProvider = Provider.of<CardProvider>(context);
+    final cardProvider = Provider.of<CardListProvider>(context);
 
     final _screenSize = MediaQuery.of(context).size;
 

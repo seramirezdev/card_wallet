@@ -1,3 +1,4 @@
+import 'package:card_wallet/models/card_color_model.dart';
 import 'package:flutter/material.dart';
 
 class CardColors {
@@ -12,4 +13,8 @@ class CardColors {
     Color.fromRGBO(222, 88, 116, 1.0), // salmon
     Color.fromRGBO(128, 182, 234, 1.0), // lightCyan
   ];
+
+  static List<CardColorModel> cardColors = List.generate(
+      baseColors.length,
+      (int index) => CardColorModel(isSelected: false, cardColor: index));
 }
