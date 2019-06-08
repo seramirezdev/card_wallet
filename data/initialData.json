@@ -1,0 +1,40 @@
+{
+  "cardResults": [
+    {
+      "holderName": "Sergio Ramírez",
+      "number": "5677365215973265",
+      "month": "11",
+      "year": 2025,
+      "cvv": 235,
+      "color": null,
+      "type": "CREDIT"
+    },
+    {
+      "holderName": "Steven Ceballos",
+      "number": "3621023158463251",
+      "month": "06",
+      "year": 2022,
+      "cvv": 325,
+      "color": null,
+      "type": "CREDIT"
+    },
+    {
+      "holderName": "Guiovani González",
+      "number": "9412659220213654",
+      "month": "03",
+      "year": 2021,
+      "cvv": 952,
+      "color": null,
+      "type": "CREDIT"
+    },
+    {
+      "holderName": "Daniel Orozco",
+      "number": "6523201569872564",
+      "month": "12",
+      "year": 2024,
+      "cvv": 328,
+      "color": null,
+      "type": "CREDIT"
+    }
+  ]
+}
